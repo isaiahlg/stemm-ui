@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import {
   Typography,
   Toolbar,
@@ -12,8 +13,12 @@ import {
   Button,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import * as api from "../services/api";
 
 export function Solar() {
+  let history = useHistory();
+  const [loading, setLoading] = useState(false);
+
   const [input1, setInput1] = useState("");
   const [input2, setInput2] = useState("");
   const [input3, setInput3] = useState("");
@@ -52,7 +57,22 @@ export function Solar() {
         JSON.stringify(values) +
         JSON.stringify(advValues)
     );
+
+    submitValuesToAPI(values, advValues);
   };
+
+  async function submitValuesToAPI(values, advValues) {
+    setLoading(true);
+    try {
+      const resp = await api.submitValues(values, advValues);
+      alert("success!");
+      console.log(resp);
+      history.push("/dashboard");
+    } catch (e) {
+      alert("failed: " + e);
+      console.log(e);
+    }
+  }
 
   const isValid = (value) => {
     return value.length > 3 || value.length === 0;
@@ -207,7 +227,13 @@ export function Solar() {
               />
             </AccordionDetails>
           </Accordion>
-          <Button type="submit" variant="contained" sx={{ my: 2 }} fullWidth>
+          <Button
+            type="submit"
+            variant="contained"
+            disabled={loading}
+            sx={{ my: 2 }}
+            fullWidth
+          >
             {"Submit"}
           </Button>
         </form>
