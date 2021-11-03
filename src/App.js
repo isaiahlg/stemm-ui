@@ -12,14 +12,6 @@ import {
   ListItemText,
   IconButton,
   Divider,
-  TextField,
-  Container,
-  Paper,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-  // MenuList,
-  // MenuItem,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import DashboardIcon from "@mui/icons-material/Dashboard";
@@ -27,9 +19,11 @@ import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import BatteryChargingFullIcon from "@mui/icons-material/BatteryChargingFull";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import SettingsIcon from "@mui/icons-material/Settings";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import LocalAtmIcon from "@mui/icons-material/LocalAtm";
 import "./App.css";
+import { Dashboard } from "./components/dashboard.js";
+import { Solar } from "./components/solar.js";
+import { Battery } from "./components/battery.js";
 
 function App() {
   let history = useHistory();
@@ -65,13 +59,6 @@ function App() {
           </IconButton>
         </Toolbar>
         <Divider />
-        {/* <MenuList>
-          <MenuItem>
-            <DashboardIcon />
-            Dashboard
-          </MenuItem>
-          <MenuItem>Goodbye</MenuItem>
-        </MenuList> */}
         <List>
           <ListItem
             button
@@ -158,125 +145,6 @@ function App() {
           <Battery />
         </Route>
       </Switch>
-    </Box>
-  );
-}
-
-function Dashboard() {
-  return (
-    <Box>
-      <Toolbar />
-
-      <h3>{"Dashboard"}</h3>
-    </Box>
-  );
-}
-
-function Solar() {
-  return (
-    <Box component="main">
-      <Toolbar />
-      <Container sx={{ mt: 4, mb: 4 }}>
-        <Paper sx={{ p: 2, mb: 2 }}>
-          <Typography variant="h5">Solar Inputs</Typography>
-          <TextField id="1" label="Outlined" variant="outlined" sx={{ m: 1 }} />
-          <TextField id="2" label="Outlined" variant="outlined" sx={{ m: 1 }} />
-          <TextField id="3" label="Outlined" variant="outlined" sx={{ m: 1 }} />
-          <TextField id="4" label="Outlined" variant="outlined" sx={{ m: 1 }} />
-          <TextField id="5" label="Outlined" variant="outlined" sx={{ m: 1 }} />
-          <TextField id="6" label="Outlined" variant="outlined" sx={{ m: 1 }} />
-          <TextField id="1" label="Outlined" variant="outlined" sx={{ m: 1 }} />
-          <TextField id="2" label="Outlined" variant="outlined" sx={{ m: 1 }} />
-          <TextField id="3" label="Outlined" variant="outlined" sx={{ m: 1 }} />
-          <TextField id="4" label="Outlined" variant="outlined" sx={{ m: 1 }} />
-          <TextField id="5" label="Outlined" variant="outlined" sx={{ m: 1 }} />
-          <TextField id="6" label="Outlined" variant="outlined" sx={{ m: 1 }} />
-        </Paper>
-        <Accordion>
-          <AccordionSummary expandIcon={<ExpandMoreIcon />} id="section1">
-            <Typography variant="h5">Advanced</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <TextField
-              id="1"
-              label="Outlined"
-              variant="outlined"
-              sx={{ m: 1 }}
-            />
-            <TextField
-              id="2"
-              label="Outlined"
-              variant="outlined"
-              sx={{ m: 1 }}
-            />
-            <TextField
-              id="3"
-              label="Outlined"
-              variant="outlined"
-              sx={{ m: 1 }}
-            />
-            <TextField
-              id="4"
-              label="Outlined"
-              variant="outlined"
-              sx={{ m: 1 }}
-            />
-            <TextField
-              id="5"
-              label="Outlined"
-              variant="outlined"
-              sx={{ m: 1 }}
-            />
-            <TextField
-              id="6"
-              label="Outlined"
-              variant="outlined"
-              sx={{ m: 1 }}
-            />
-          </AccordionDetails>
-        </Accordion>
-      </Container>
-    </Box>
-  );
-}
-
-function Battery() {
-  return (
-    <Box component="main">
-      <Toolbar />
-      <Container sx={{ mt: 4, mb: 4 }}>
-        <Paper sx={{ p: 2, mb: 2 }}>
-          <Typography variant="h5">Battery Inputs</Typography>
-          <TextField id="1" label="Outlined" variant="outlined" sx={{ m: 1 }} />
-          <TextField id="2" label="Outlined" variant="outlined" sx={{ m: 1 }} />
-          <TextField id="3" label="Outlined" variant="outlined" sx={{ m: 1 }} />
-        </Paper>
-        <Accordion>
-          <AccordionSummary expandIcon={<ExpandMoreIcon />} id="section1">
-            <Typography variant="h5">Advanced</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <TextField
-              id="1"
-              label="Outlined"
-              variant="outlined"
-              sx={{ m: 1 }}
-            />
-            <TextField
-              id="2"
-              label="Outlined"
-              variant="outlined"
-              sx={{ m: 1 }}
-            />
-            <TextField
-              id="3"
-              label="Outlined"
-              variant="outlined"
-              sx={{ m: 1 }}
-            />
-          </AccordionDetails>
-        </Accordion>
-      </Container>
     </Box>
   );
 }
