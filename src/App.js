@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { Box } from "@mui/material";
 import "./App.css";
-import { MainAppBar } from "./components/appbar";
+import { MainAppBar } from "./components/appBar";
 import { SideMenu } from "./components/sideMenu";
 import { Dashboard } from "./components/dashboard";
 import { MainForm } from "./components/mainForm";

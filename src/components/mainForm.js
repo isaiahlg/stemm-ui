@@ -128,7 +128,7 @@ export function MainForm() {
           type="submit"
           variant="contained"
           disabled={loading || !isFormValid}
-          sx={{ my: 2 }}
+          sx={{ my: 1 }}
           fullWidth
           size="large"
         >

@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import {
   Typography,
   Toolbar,
@@ -10,15 +11,19 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
+  Button,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
 export function Solar(props) {
+  let history = useHistory();
   return (
     <Box component="main">
       <Toolbar />
       <Container sx={{ mt: 4 }}>
-        <Paper sx={{ p: 3, mb: 2 }} elevation={5}>
+        <Paper sx={{ p: 3, my: 2 }} elevation={5}>
           <Typography sx={{ mb: 2 }} variant="h5">
             Solar Inputs
           </Typography>
@@ -104,7 +109,7 @@ export function Solar(props) {
             </Grid>
           </Grid>
         </Paper>
-        <Accordion elevation={5}>
+        <Accordion elevation={5} sx={{ my: 2 }}>
           <AccordionSummary expandIcon={<ExpandMoreIcon />} id="section1">
             <Typography variant="h5">Advanced</Typography>
           </AccordionSummary>
@@ -192,6 +197,33 @@ export function Solar(props) {
             </Grid>
           </AccordionDetails>
         </Accordion>
+        <Grid container>
+          <Grid item xs={5} md={3}>
+            <Button
+              size="large"
+              variant="outlined"
+              onClick={() => history.push("/dashboard")}
+              sx={{ my: 2 }}
+              fullWidth
+            >
+              <ChevronLeftIcon />
+              {" Previous"}
+            </Button>
+          </Grid>
+          <Grid item xs={2} md={6} />
+          <Grid item xs={5} md={3}>
+            <Button
+              size="large"
+              variant="outlined"
+              onClick={() => history.push("/battery")}
+              sx={{ my: 2 }}
+              fullWidth
+            >
+              {"Next "}
+              <ChevronRightIcon />
+            </Button>
+          </Grid>
+        </Grid>
       </Container>
     </Box>
   );
